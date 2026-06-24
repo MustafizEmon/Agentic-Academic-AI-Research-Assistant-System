@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+    <defs>
+        <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0f172a"/>
+            <stop offset="100%" stop-color="#1e293b"/>
+        </linearGradient>
+        <linearGradient id="frontend-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#2563eb"/>
+            <stop offset="100%" stop-color="#3b82f6"/>
+        </linearGradient>
+        <linearGradient id="backend-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#1e293b"/>
+            <stop offset="100%" stop-color="#0f172a"/>
+        </linearGradient>
+        <linearGradient id="agent-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#7c3aed"/>
+            <stop offset="100%" stop-color="#6d28d9"/>
+        </linearGradient>
+        <linearGradient id="service-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#059669"/>
+            <stop offset="100%" stop-color="#047857"/>
+        </linearGradient>
+        <linearGradient id="data-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ea580c"/>
+            <stop offset="100%" stop-color="#c2410c"/>
+        </linearGradient>
+
+        <filter id="drop-shadow" x="-10%" y="-10%" width="120%" height="120%">
+            <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.5"/>
+        </filter>
+        <filter id="glow-blue" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="8" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+        </filter>
+        
+        <marker id="arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#3b82f6"/>
+        </marker>
+        <marker id="arrow-purple" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#a78bfa"/>
+        </marker>
+        <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#34d399"/>
+        </marker>
+        <marker id="arrow-orange" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#ff7a00"/>
+        </marker>
+    </defs>
+
+    <rect width="1920" height="1080" fill="url(#bg-grad)"/>
+    
+    <g opacity="0.03">
+        <path d="M 0,100 L 1920,100 M 0,200 L 1920,200 M 0,300 L 1920,300 M 0,400 L 1920,400 M 0,500 L 1920,500 M 0,600 L 1920,600 M 0,700 L 1920,700 M 0,800 L 1920,800 M 0,900 L 1920,900 M 0,1000 L 1920,1000" stroke="#ffffff" stroke-width="2"/>
+        <path d="M 100,0 L 100,1080 M 200,0 L 200,1080 M 300,0 L 300,1080 M 400,0 L 400,1080 M 500,0 L 500,1080 M 600,0 L 600,1080 M 700,0 L 700,1080 M 800,0 L 800,1080 M 900,0 L 900,1080 M 1000,0 L 1000,1080 M 1100,0 L 1100,1080 M 1200,0 L 1200,1080 M 1300,0 L 1300,1080 M 1400,0 L 1400,1080 M 1500,0 L 1500,1080 M 1600,0 L 1600,1080 M 1700,0 L 1700,1080 M 1800,0 L 1800,1080" stroke="#ffffff" stroke-width="2"/>
+    </g>
+
+    <g filter="url(#drop-shadow)">
+        <rect x="100" y="80" width="1720" height="280" rx="16" fill="#1d2433" stroke="url(#frontend-grad)" stroke-width="3"/>
+        <rect x="100" y="80" width="1720" height="60" rx="16" fill="url(#frontend-grad)" opacity="0.9"/>
+        <text x="960" y="122" font-family="'Segoe UI', Roboto, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="2">REACT FRONTEND WORKSPACE Dashboard</text>
+    </g>
+
+    <g filter="url(#drop-shadow)">
+        <rect x="150" y="180" width="460" height="140" rx="12" fill="#0f172a" stroke="#3b82f6" stroke-width="2"/>
+        <text x="180" y="225" font-family="'Segoe UI', sans-serif" font-size="20" font-weight="700" fill="#ffffff">Input Panel Component</text>
+        <text x="180" y="255" font-family="'Segoe UI', sans-serif" font-size="15" fill="#94a3b8">• Research Topic Query Intent Formulation</text>
+        <text x="180" y="280" font-family="'Segoe UI', sans-serif" font-size="15" fill="#94a3b8">• Max Paper Budget Limit Ceiling Settings</text>
+    </g>
+
+    <g filter="url(#drop-shadow)">
+        <rect x="680" y="180" width="560" height="140" rx="12" fill="#0f172a" stroke="#3b82f6" stroke-width="2"/>
+        <text x="710" y="225" font-family="'Segoe UI', sans-serif" font-size="20" font-weight="700" fill="#ffffff">Split Review Viewports Panel</text>
+        <text x="710" y="255" font-family="'Segoe UI', sans-serif" font-size="15" fill="#34d399">Tab 1: Structured Thematic Matrix Synthesis</text>
+        <text x="710" y="280" font-family="'Segoe UI', sans-serif" font-size="15" fill="#a78bfa">Tab 2: Camera-Ready Publication Related Work</text>
+    </g>
+
+    <g filter="url(#drop-shadow)">
+        <rect x="1310" y="180" width="460" height="140" rx="12" fill="#1e1e38" stroke="#60a5fa" stroke-width="2" filter="url(#glow-blue)"/>
+        <text x="1340" y="225" font-family="'Segoe UI', sans-serif" font-size="20" font-weight="700" fill="#60a5fa">💬 Floating RAG Chat Widget</text>
+        <text x="1340" y="255" font-family="'Segoe UI', sans-serif" font-size="15" fill="#cbd5e1">Context-Aware Conversational Copilot</text>
+        <text x="1340" y="280" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="600" fill="#93c5fd">Anchored to Local Index Database Matrix</text>
+    </g>
+
+
+    <path d="M 380,360 L 380,520" fill="none" stroke="#3b82f6" stroke-width="4" stroke-dasharray="8 6" marker-end="url(#arrow-blue)"/>
+    <rect x="235" y="420" width="130" height="40" rx="6" fill="#1e293b" stroke="#3b82f6" stroke-width="1"/>
+    <text x="300" y="445" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="600" fill="#3b82f6" text-anchor="middle">REST Payload</text>
+
+    <path d="M 410,520 L 410,360" fill="none" stroke="#60a5fa" stroke-width="2" marker-end="url(#arrow-blue)"/>
+    <text x="425" y="445" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="500" fill="#60a5fa">State Polling (2.5s)</text>
+
+    <path d="M 960,360 L 960,700" fill="none" stroke="#34d399" stroke-width="4" stroke-dasharray="8 6" marker-end="url(#arrow-green)"/>
+    <rect x="815" y="420" width="130" height="40" rx="6" fill="#1e293b" stroke="#34d399" stroke-width="1"/>
+    <text x="880" y="445" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="600" fill="#34d399" text-anchor="middle">File Downloads</text>
+
+    <path d="M 1540,360 L 1540,520" fill="none" stroke="#ff7a00" stroke-width="4" stroke-dasharray="8 6" marker-end="url(#arrow-orange)"/>
+    <rect x="1555" y="420" width="130" height="40" rx="6" fill="#1e293b" stroke="#ff7a00" stroke-width="1"/>
+    <text x="1620" y="445" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="600" fill="#ff7a00" text-anchor="middle">Chat Queries</text>
+
+
+    <g filter="url(#drop-shadow)">
+        <rect x="100" y="490" width="1720" height="520" rx="16" fill="url(#backend-grad)" stroke="#475569" stroke-width="3"/>
+        <text x="1800" y="985" font-family="'Segoe UI', sans-serif" font-size="22" font-weight="800" fill="#475569" text-anchor="end" letter-spacing="3">FASTAPI ASYNCHRONOUS BACKEND CORE</text>
+    </g>
+
+    <g filter="url(#drop-shadow)">
+        <rect x="150" y="530" width="460" height="100" rx="12" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+        <text x="180" y="575" font-family="'Fira Code', monospace" font-size="22" font-weight="700" fill="#38bdf8">main.py</text>
+        <text x="180" y="605" font-family="'Segoe UI', sans-serif" font-size="15" fill="#94a3b8">FastAPI Framework Request Router &amp; State Machine</text>
+    </g>
+
+    <path d="M 380,630 L 380,700" fill="none" stroke="#38bdf8" stroke-width="3" marker-end="url(#arrow-blue)"/>
+
+    <g filter="url(#drop-shadow)">
+        <rect x="150" y="700" width="460" height="260" rx="12" fill="url(#agent-grad)" stroke="#a78bfa" stroke-width="2"/>
+        <text x="180" y="745" font-family="'Segoe UI', sans-serif" font-size="22" font-weight="800" fill="#ffffff" letter-spacing="1">agents/ Matrix Ecosystem</text>
+        
+        <rect x="175" y="770" width="410" height="45" rx="6" fill="#1e1b4b" opacity="0.6"/>
+        <text x="195" y="798" font-family="'Fira Code', monospace" font-size="15" font-weight="600" fill="#c084fc">query_agent.py</text>
+        <text x="365" y="796" font-family="'Segoe UI', sans-serif" font-size="14" fill="#ddd6fe">- Parsing &amp; Search Expansion</text>
+
+        <rect x="175" y="825" width="410" height="45" rx="6" fill="#1e1b4b" opacity="0.6"/>
+        <text x="195" y="853" font-family="'Fira Code', monospace" font-size="15" font-weight="600" fill="#c084fc">structuring_agent.py</text>
+        <text x="390" y="851" font-family="'Segoe UI', sans-serif" font-size="14" fill="#ddd6fe">- Entity Extraction Block</text>
+
+        <rect x="175" y="880" width="410" height="45" rx="6" fill="#1e1b4b" opacity="0.6"/>
+        <text x="195" y="908" font-family="'Fira Code', monospace" font-size="15" font-weight="600" fill="#c084fc">evaluation_agent.py</text>
+        <text x="385" y="906" font-family="'Segoe UI', sans-serif" font-size="14" fill="#ddd6fe">- QA Loop Integrity Audit</text>
+    </g>
+
+    <path d="M 610,830 L 730,830" fill="none" stroke="#a78bfa" stroke-width="3" marker-end="url(#arrow-purple)"/>
+
+    <g filter="url(#drop-shadow)">
+        <rect x="730" y="700" width="460" height="260" rx="12" fill="url(#service-grad)" stroke="#34d399" stroke-width="2"/>
+        <text x="760" y="745" font-family="'Segoe UI', sans-serif" font-size="22" font-weight="800" fill="#ffffff" letter-spacing="1">services/ Utilities Cluster</text>
+        
+        <rect x="755" y="770" width="410" height="50" rx="6" fill="#022c22" opacity="0.6"/>
+        <text x="775" y="802" font-family="'Fira Code', monospace" font-size="16" font-weight="600" fill="#34d399">pdf_service.py</text>
+        <text x="940" y="800" font-family="'Segoe UI', sans-serif" font-size="13" fill="#a7f3d0">Look-Ahead Integrity Verification</text>
+
+        <rect x="755" y="835" width="410" height="50" rx="6" fill="#022c22" opacity="0.6"/>
+        <text x="775" y="867" font-family="'Fira Code', monospace" font-size="16" font-weight="600" fill="#34d399">synthesis_service.py</text>
+        <text x="975" y="865" font-family="'Segoe UI', sans-serif" font-size="13" fill="#a7f3d0">Dual-Review Generator</text>
+        
+        <text x="960" y="925" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="600" fill="#a7f3d0" text-anchor="middle">Concurrent Engine Downloader Connected</text>
+    </g>
+
+    <path d="M 1190,830 L 1310,830" fill="none" stroke="#34d399" stroke-width="3" marker-end="url(#arrow-green)"/>
+
+    <g filter="url(#drop-shadow)">
+        <rect x="1310" y="530" width="460" height="100" rx="12" fill="#2d1c10" stroke="#ff7a00" stroke-width="2"/>
+        <text x="1340" y="575" font-family="'Fira Code', monospace" font-size="22" font-weight="700" fill="#ff9d42">rag_service.py</text>
+        <text x="1340" y="605" font-family="'Segoe UI', sans-serif" font-size="15" fill="#d6c4b5">Local Text Mining Context Router &amp; Scoring Matrix</text>
+    </g>
+
+    <path d="M 1540,630 L 1540,700" fill="none" stroke="#ff7a00" stroke-width="3" marker-end="url(#arrow-orange)"/>
+
+    <g filter="url(#drop-shadow)">
+        <rect x="1310" y="700" width="460" height="260" rx="12" fill="url(#data-grad)" stroke="#ff7a00" stroke-width="2"/>
+        <text x="1340" y="745" font-family="'Segoe UI', sans-serif" font-size="22" font-weight="800" fill="#ffffff" letter-spacing="1">data/ Secure Storage Perimeter</text>
+        
+        <rect x="1335" y="770" width="410" height="45" rx="6" fill="#431407" opacity="0.6"/>
+        <text x="1355" y="798" font-family="'Segoe UI', sans-serif" font-size="16" font-weight="700" fill="#ffedd5">📁 /papers/</text>
+        <text x="1465" y="797" font-family="'Segoe UI', sans-serif" font-size="14" fill="#ffedd5">- Clean Local Empirical Research PDFs</text>
+
+        <rect x="1335" y="825" width="410" height="45" rx="6" fill="#431407" opacity="0.6"/>
+        <text x="1355" y="853" font-family="'Segoe UI', sans-serif" font-size="16" font-weight="700" fill="#ffedd5">📁 /vectorstore/</text>
+        <text x="1505" y="852" font-family="'Segoe UI', sans-serif" font-size="14" fill="#ffedd5">- local_chunks.json DB Index</text>
+
+        <rect x="1335" y="880" width="410" height="45" rx="6" fill="#431407" opacity="0.6"/>
+        <text x="1355" y="908" font-family="'Fira Code', monospace" font-size="16" font-weight="600" fill="#ff9d42">metadata.json</text>
+        <text x="1495" y="906" font-family="'Segoe UI', sans-serif" font-size="14" fill="#ffedd5">- Master Data Grid Registry</text>
+    </g>
+
+    <path d="M 140,540 L 120,540 L 120,990 L 1800,990 L 1800,540 L 1780,540" fill="none" stroke="#475569" stroke-width="2" stroke-dasharray="12 6"/>
+</svg>

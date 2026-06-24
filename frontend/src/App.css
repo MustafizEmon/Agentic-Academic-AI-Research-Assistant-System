@@ -1,0 +1,212 @@
+/* App.css - Complete responsive styles */
+
+/* Base responsive container */
+.app-container {
+  padding: 32px;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 1024px) {
+  .split-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    padding: 16px !important;
+  }
+  
+  .app-bar {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  
+  .app-title {
+    font-size: 20px !important;
+  }
+  
+  .flex-row {
+    gap: 12px !important;
+  }
+  
+  .input-field {
+    min-width: 100% !important;
+  }
+  
+  .num-input {
+    width: 80px !important;
+  }
+  
+  .btn-action {
+    width: 100% !important;
+    padding: 10px 18px !important;
+    font-size: 14px !important;
+  }
+  
+  .scroll-box {
+    height: 300px !important;
+    padding: 12px !important;
+    font-size: 13px !important;
+  }
+  
+  .matrix-table th {
+    font-size: 11px !important;
+    padding: 8px !important;
+  }
+  
+  .matrix-table td {
+    font-size: 12px !important;
+    padding: 8px !important;
+  }
+  
+  .card {
+    padding: 16px !important;
+  }
+  
+  .floating-widget {
+    width: calc(100% - 32px) !important;
+    height: calc(100% - 100px) !important;
+    bottom: 16px !important;
+    right: 16px !important;
+    border-radius: 12px !important;
+  }
+  
+  .chat-trigger {
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 18px !important;
+    bottom: 16px !important;
+    right: 16px !important;
+  }
+  
+  .file-input {
+    width: 100% !important;
+  }
+  
+  .file-input-wrapper {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-container {
+    padding: 12px !important;
+  }
+  
+  .app-title {
+    font-size: 18px !important;
+  }
+  
+  .btn-danger {
+    font-size: 13px !important;
+    padding: 6px 14px !important;
+  }
+  
+  .btn-export {
+    font-size: 12px !important;
+    padding: 4px 12px !important;
+  }
+  
+  .badge {
+    font-size: 11px !important;
+    padding: 4px 10px !important;
+  }
+}
+
+/* Scrollbar styling for scroll boxes */
+.scroll-box::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scroll-box::-webkit-scrollbar-track {
+  background-color: #f1f5f9;
+  border-radius: 8px;
+}
+
+.scroll-box::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 8px;
+}
+
+.scroll-box::-webkit-scrollbar-thumb:hover {
+  background-color: #94a3b8;
+}
+
+/* Chat messages scrollbar */
+.chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background-color: #f1f5f9;
+  border-radius: 8px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 8px;
+}
+
+/* Hover effects */
+.btn-danger:hover {
+  background-color: #fef2f2 !important;
+}
+
+.btn-action:hover:not(:disabled) {
+  background-color: #1d4ed8 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btn-action:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.btn-export:hover {
+  background-color: #f1f5f9 !important;
+  border-color: #94a3b8 !important;
+}
+
+.chat-trigger:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+}
+
+.card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.input-field:focus,
+.num-input:focus,
+.chat-input:focus {
+  border-color: #2563eb !important;
+  outline: none;
+}
+
+.badge-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 8px;
+  border-radius: 8px;
+  border: 1px solid #f1f5f9;
+}
+
+.chat-send-btn:hover {
+  background-color: #1d4ed8 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
