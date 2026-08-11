@@ -20,3 +20,5 @@ frontend/README.md
 .vscode/
 .idea/
 
+.env
+.env.*
