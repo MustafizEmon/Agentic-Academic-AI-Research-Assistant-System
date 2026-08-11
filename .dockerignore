@@ -1,0 +1,22 @@
+# Python
+backend/venv/
+backend/__pycache__/
+backend/**/__pycache__/
+**/*.pyc
+backend/.env
+
+# Node
+frontend/node_modules/
+frontend/build/
+
+# Data generated at runtime (do not bake into the image; recreated by config.py)
+backend/data/
+
+# Docs / misc / dev-only resources
+backend/Resources/
+frontend/README.md
+.git/
+.gitignore
+.vscode/
+.idea/
+
