@@ -20,5 +20,5 @@ if not GROQ_API_KEY:
     raise ValueError("CRITICAL: GROQ_API_KEY is missing from environment setup.")
 
 # Configuration models
-LLM_MODEL = "llama-3.1-8b-instant"  # Free high-context model on Groq
-EMBEDDING_MODEL = "all-MiniLM-L6-v2" # Free local HuggingFace embedding
+LLM_MODEL = "openai/gpt-oss-120b"  # Free high-context model on Groq
+EMBEDDING_MODEL = "all-MiniLM-L6-v2" # Free local HuggingFace embedding (optional)
