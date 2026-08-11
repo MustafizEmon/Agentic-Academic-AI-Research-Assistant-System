@@ -1,6 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 
+// remark---> the frontend is served by the same FastAPI process
+// the CRA dev-server "proxy" field in package.json forwards
+// relative "/api/..." requests to http://127.0.0.1:8000 automatically.
+const API_BASE = process.env.REACT_APP_API_URL || '';
+
 function App() {
   const [topic, setTopic] = useState('');
   const [maxPapers, setMaxPapers] = useState(5);
@@ -34,7 +39,7 @@ function App() {
     if (state.status === 'processing') {
       interval = setInterval(async () => {
         try {
-          const res = await fetch('http://127.0.0.1:8000/api/state');
+          const res = await fetch(`${API_BASE}/api/state`);
           const data = await res.json();
           setState(data);
           if (data.status !== 'processing') {
@@ -56,7 +61,7 @@ function App() {
       formData.append('files', files[i]);
     }
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/upload-multiple', {
+      const res = await fetch(`${API_BASE}/api/upload-multiple`, {
         method: 'POST',
         body: formData
       });
@@ -72,7 +77,7 @@ function App() {
     if (!topic.trim()) return alert("Provide a valid topic directive.");
     try {
       setState(prev => ({ ...prev, status: 'processing', step: 1 }));
-      const res = await fetch('http://127.0.0.1:8000/api/pipeline/start', {
+      const res = await fetch(`${API_BASE}/api/pipeline/start`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ topic, max_papers: parseInt(maxPapers) })
@@ -93,7 +98,7 @@ function App() {
     setIsChatLoading(true);
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/chat', {
+      const res = await fetch(`${API_BASE}/api/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ question: query })
@@ -110,7 +115,7 @@ function App() {
   const resetSystemWorkspace = async () => {
     if (!window.confirm("Reset all local storage and reset environment?")) return;
     try {
-      await fetch('http://127.0.0.1:8000/api/reset', { method: 'POST' });
+      await fetch(`${API_BASE}/api/reset`, { method: 'POST' });
       setTopic('');
       setUploadedCount(0);
       setChatHistory([]);

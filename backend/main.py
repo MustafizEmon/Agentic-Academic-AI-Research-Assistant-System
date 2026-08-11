@@ -3,6 +3,8 @@ import shutil
 import json
 from fastapi import FastAPI, HTTPException, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from typing import List
 
@@ -23,6 +25,16 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# remark---> Serve the built React frontend from this same process/container ---
+# The Dockerfile builds the React app and copies the static output here.
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+FRONTEND_DIST_DIR = os.path.join(BASE_DIR, "static")
+FRONTEND_ASSETS_DIR = os.path.join(FRONTEND_DIST_DIR, "static")
+
+if os.path.isdir(FRONTEND_ASSETS_DIR):
+    # CRA build output already places JS/CSS under a "static" subfolder
+    app.mount("/static", StaticFiles(directory=FRONTEND_ASSETS_DIR), name="static-assets")
 
 pipeline_state = {
     "status": "idle",
@@ -240,6 +252,19 @@ def reset_entire_system():
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
     
-@app.get("/")
-def home():
-    return {"message": "API is running..."}
+@app.get("/api/health")
+def health_check():
+    return {"status": "ok", "message": "API is running..."}
+
+# remark---> Catch-all MUST be the last route defined: it serves the React app's
+# index.html for any non-API path so client-side routing keeps working.
+@app.get("/{full_path:path}")
+def serve_frontend(full_path: str):
+    if os.path.isdir(FRONTEND_DIST_DIR):
+        requested_file = os.path.join(FRONTEND_DIST_DIR, full_path)
+        if full_path and os.path.isfile(requested_file):
+            return FileResponse(requested_file)
+        index_path = os.path.join(FRONTEND_DIST_DIR, "index.html")
+        if os.path.isfile(index_path):
+            return FileResponse(index_path)
+    raise HTTPException(status_code=404, detail="Not found")
