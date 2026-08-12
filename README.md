@@ -7,6 +7,7 @@ The Agentic Academic AI Research Assistant System is the concept of helps resear
 
 Users only need to enter a research topic. The platform then uses multiple AI agents to search academic databases, collect and validate research papers, organize findings into easy-to-read comparison tables, and generate literature reviews texts.
 
+The project is fully containerized with Docker: the React frontend is built to static assets and served directly by the FastAPI backend, so the entire application runs as a single image/process.
 # Features
 
 ***Research Discovery & Management***
@@ -31,6 +32,7 @@ Users only need to enter a research topic. The platform then uses multiple AI ag
 * Uses a lightweight Python-based retrieval system instead of complex vector databases, making installation simpler and more reliable.
 * Provides a one-click reset option to clear all stored papers and start a new research project.
 * Supports exporting literature reviews as text files and comparison tables in spreadsheet-compatible formats for further analysis.
+* Ships as a single Docker image (frontend + backend in one container) for one-command local runs.
 
 # System Architecture
 
@@ -62,7 +64,7 @@ The system follows a step-by-step pipeline managed through a shared state object
 
 * To improve performance and stay within AI processing limits, text inputs are restricted to a maximum of 12,000 characters. For question-answering and retrieval tasks, the system only selects the two most relevant text sections, helping maintain speed while keeping important information from research papers available.
 
-* Security is enhanced by restricting the server to run only on the local machine (127.0.0.1), preventing access from external networks. Uploaded filenames are automatically cleaned and shortened to remove special characters and reduce the risk of file path and directory traversal attacks.
+* In local development the API binds to 127.0.0.1 only. In the Docker image the API binds to 0.0.0.0 (required for the container's network bridge), while the container itself remains the only exposed boundary. Uploaded filenames are automatically cleaned and shortened to remove special characters and reduce the risk of file path and directory traversal attacks.
 
 ***Error Handling***
 
@@ -78,17 +80,22 @@ The system follows a step-by-step pipeline managed through a shared state object
 * Chunk-based file uploads reduce memory usage.
 * Text truncation lowers processing costs and improves stability.
 * Lightweight Python-based retrieval enables fast searches without external databases or GPUs.
+* Multi-stage Docker build keeps the runtime image lean, like- no Node.js, no `node_modules`.
 
 ***Challenges & Solutions***
 
 * Fixed API search failures by converting complex Boolean queries into simple keywords.
 * Solved token limit issues by reducing context size and optimizing retrieval.
 * Eliminated extraction failures by filtering out scanned, image-only, and non-research PDFs automatically.
+* Reduced Docker image size by auditing actual imports and stripping unused heavy dependencies instead of relying on the original open-ended requirements file.
 
 # Project Architecture
 
 ```text
 academic_research_assistant/         # Unified Structural Workspace Root
+├── Dockerfile                       # Multi-stage build: Node (frontend build) -> Python slim (runtime)
+├── .dockerignore                    # Keeps venv/, node_modules/, data/, Resources/ out of the build context
+├── docker-compose.yml               # One-command local build & run (docker compose up --build)
 ├── backend/                         # Core Python Analytical Engine Workspace
 │   ├── main.py                      # REST Endpoint Router & Orchestration Pipeline Controller
 │   ├── config.py                    # Global Path Resolution & Environment Parameter Definitions
@@ -133,6 +140,11 @@ academic_research_assistant/         # Unified Structural Workspace Root
 * FastAPI Framework
 * Uvicorn WSGI Web Server
 
+### Deployment
+
+* Docker (multi-stage build)
+* Render (planned)
+
 ***Third-Party APIs, Toolkits, & Libraries***
 
 * Groq Cloud Infrastructure Layer: Provides ultra-fast LLM inference capabilities using specialized hardware arrays, executing 70B parameter models (LLaMA 3) completely on a free tier.
@@ -142,6 +154,10 @@ academic_research_assistant/         # Unified Structural Workspace Root
 * PyMuPDF Extraction Library (fitz): A fast, C-backed text extraction library that parses raw text out of complex document styles, tracking multi-page files for layout compilation tasks.
 
 # How to Setup & Run
+
+You can run the project either natively (two terminals, for active development) or as a single Docker container (matches production).
+
+## Option A — Native Development
 
 ### Prerequisites
 
@@ -188,6 +204,34 @@ npm start
 ```
 
 The browser will automatically launch the workspace workspace layout at <http://localhost:3000>
+
+## Option B — Docker (single container, matches production)
+
+### Prerequisites
+
+* Docker Desktop (or Docker Engine + Compose plugin).
+* A free Groq API Key.
+
+### 1. Build & run with Docker Compose
+
+From the project root:
+
+```bash
+export GROQ_API_KEY=gsk_your_actual_free_groq_api_key_goes_here   # PowerShell: $env:GROQ_API_KEY="..."
+docker compose up --build
+```
+
+Open <http://localhost:7860> — the same container serves both the API (`/api/*`) and the built React app.
+
+### 2. Or build/run with plain Docker
+
+```bash
+docker build -t academic-research-assistant .
+# or any name
+docker run --rm -p 7860:7860 -e GROQ_API_KEY=gsk_your_actual_free_groq_api_key_goes_here academic-research-assistant
+```
+
+> The Dockerfile is a multi-stage build: a `node:20-alpine` stage compiles the React app, and only its static output is copied into the final `python:3.11-slim` runtime image. This keeps the shipped image free of Node.js, `node_modules`, and unused ML dependencies.
 
 # Usage Instructions
 
